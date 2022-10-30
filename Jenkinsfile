@@ -14,6 +14,15 @@ pipeline {
     }
   }
   stages {
+    stage('build') {
+            steps {
+                echo 'Starting to build docker image'
+                sh "sudo docker build . -t bootstrap-web-app:${env.BUILD_NUMBER}"
+                echo "Build Image Compeletd"
+                sh "sudo docker tag bootstrap-web-app:${env.BUILD_NUMBER} magdy79/bootstrap-web-app:${env.BUILD_NUMBER}"
+                
+            }
+        }
     stage('Run nginx') {
       steps {
         container('nginx-cont') {
