@@ -6,19 +6,18 @@ pipeline {
         kind: Pod
         spec:
           containers:
-          - name: maven
-            image: maven:alpine
-            command:
-            - cat
-            tty: true
+          - name: nginx-cont
+            image: nginx
+            ports:
+              containerPort: 80
         '''
     }
   }
   stages {
-    stage('Run maven') {
+    stage('Run nginx') {
       steps {
-        container('maven') {
-          sh 'mvn -version'
+        container('nginx-cont') {
+          sh 'echo hiiiii'
         }
       }
     }
