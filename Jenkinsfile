@@ -9,7 +9,7 @@ pipeline {
           - name: nginx-cont
             image: nginx
             ports:
-              containerPort: 80
+             - containerPort: 80
         '''
     }
   }
