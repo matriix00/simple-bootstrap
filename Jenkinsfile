@@ -17,9 +17,9 @@ pipeline {
     stage('build') {
             steps {
                 echo 'Starting to build docker image'
-                // sh " docker build . -t bootstrap-web-app:${env.BUILD_NUMBER}"
-                // echo "Build Image Compeletd"
-                // sh " docker tag bootstrap-web-app:${env.BUILD_NUMBER} magdy79/bootstrap-web-app:${env.BUILD_NUMBER}"
+                sh " docker build . -t bootstrap-web-app:${env.BUILD_NUMBER}"
+                echo "Build Image Compeletd"
+                sh " docker tag bootstrap-web-app:${env.BUILD_NUMBER} magdy79/bootstrap-web-app:${env.BUILD_NUMBER}"
                 
             }
         }
