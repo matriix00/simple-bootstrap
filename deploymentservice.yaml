@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: boot-deployment
   namespace: jenkins-namespace
   labels:
-    app: nodeapp
+    app: boot
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodeapp
+      app: boot
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: boot 
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: magdy79/boot
+        image: magdy79/boot
         ports:
-        - containerPort: 80
+        - containerPort: 5000
         
         
 ---
@@ -27,14 +27,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: boot-service
   namespace: jenkins-namespace
 spec:
   selector:
-    app: nodeapp 
+    app: boot 
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 5000
+    targetPort: 5000
     nodePort: 31110
