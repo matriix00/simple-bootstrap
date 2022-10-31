@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bootstrap-cont
-        image: magdy79/boot
+        image: magdy79/boots
         ports:
         - containerPort: 80
 ---
@@ -34,4 +34,3 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 31110
