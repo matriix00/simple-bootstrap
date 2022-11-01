@@ -39,7 +39,7 @@ pipeline {
          steps{
           script {
             // kubernetesDeploy(configs: "deploymentservice.yaml", kubeconfigId: "kubernetes")
-            withKubeConfig([credentialsId: 'kubernetes']) {
+            withKubeConfig([credentialsId: 'jenkins-master']) {
               sh 'kubectl apply -f deploymentservice.yaml'
               }
           }
