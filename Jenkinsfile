@@ -40,7 +40,9 @@ pipeline {
         
           script {
             // kubernetesDeploy(configs: "deploymentservice.yaml", kubeconfigId: "kubernetes")
-            withKubeConfig([credentialsId: 'jenkins-master', serverUrl: 'https://172.16.0.2']) {
+            withKubeConfig([credentialsId: 'kubernetes']) {
+              sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+              sh 'chmod u+x ./kubectl' 
               sh 'kubectl apply -f deploymentservice.yaml'
               }
           }
