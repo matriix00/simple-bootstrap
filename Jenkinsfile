@@ -35,16 +35,18 @@ pipeline {
         }
       }
     }
-
-    stage('Deploying App to Kubernetes') {
-      steps {
-        script {
-          // kubernetesDeploy(configs: "deploymentservice.yaml", kubeconfigId: "kubernetes")
-          withKubeConfig([credentialsId: 'jenkins-master', serverUrl: 'https://172.16.0.2']) {
-            sh 'kubectl apply -f deploymentservice.yaml'
-            }
-        }
+    node{
+      stage('Deploying App to Kubernetes') {
+        
+          script {
+            // kubernetesDeploy(configs: "deploymentservice.yaml", kubeconfigId: "kubernetes")
+            withKubeConfig([credentialsId: 'jenkins-master', serverUrl: 'https://172.16.0.2']) {
+              sh 'kubectl apply -f deploymentservice.yaml'
+              }
+          }
+          
       }
+      
     }
 
   }
