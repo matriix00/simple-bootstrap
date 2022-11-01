@@ -19,7 +19,7 @@ Blue Ocean  -  Docker   -  Role-based Authorization Strategy  -  Kubernetes
 
 ### 2- Creating credentials
 Docker  -  Github  -  kubernetes-serviceaccount  
-### 3- Provide connection with Kubernetes GKE using k8s plugin
+### 3- Provide connection to Kubernetes GKE using k8s plugin
 
 - get controlplane url 
 ```
