@@ -34,6 +34,10 @@ $ kubectl create rolebinding jenkins-admin-binding --clusterrole=admin --service
 ### 4- Creating new user and assign role  using role-based-authorization  plugin
 
 ### 5-  Create new pipeline and configure webhook to trigger commit changes 
+1- pull code from github
+2- build bootstrap image
+3- push this image to dockerhub
+4- trigger CD pipline to run using webhook
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
