@@ -9,6 +9,7 @@ pipeline {
     kubernetes {
       yamlFile 'deploymentservice.yaml'
     }
+  }
 
   stages {
 
