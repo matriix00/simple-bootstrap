@@ -5,11 +5,7 @@ pipeline {
     dockerImage = ""
   }
 
-  agent {
-    kubernetes {
-      yamlFile 'deploymentservice.yaml'
-    }
-  }
+  agent any
 
   stages {
 
@@ -40,13 +36,13 @@ pipeline {
       }
     }
 
-    // stage('Deploying App to Kubernetes') {
-    //   steps {
-    //     script {
-    //       kubernetesDeploy(configs: "deploymentservice.yaml", kubeconfigId: "kubernetes")
-    //     }
-    //   }
-    // }
+    stage('Deploying App to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deploymentservice.yaml", kubeconfigId: "kubernetes")
+        }
+      }
+    }
 
   }
 
