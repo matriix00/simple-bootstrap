@@ -5,6 +5,10 @@ pipeline {
     dockerImage = ""
   }
 
+  agent {
+    kubernetes {
+      yamlFile 'deploymentservice.yaml'
+    }
 
   stages {
 
@@ -34,11 +38,7 @@ pipeline {
         }
       }
     }
-  agent {
-    kubernetes {
-      yamlFile 'KubernetesPod.yaml'
-    }
-  }
+
     // stage('Deploying App to Kubernetes') {
     //   steps {
     //     script {
