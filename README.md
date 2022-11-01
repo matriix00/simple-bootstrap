@@ -39,6 +39,7 @@ $ kubectl create rolebinding jenkins-admin-binding --clusterrole=admin --service
 2- build bootstrap image
 3- push this image to dockerhub
 4- trigger CD pipline to run using webhook
+5- deploy on k8s
 ```
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
