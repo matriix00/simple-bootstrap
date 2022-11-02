@@ -29,6 +29,7 @@ pipeline {
            }
       steps{
         script {
+
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
             dockerImage.push("latest")
           }
@@ -38,6 +39,10 @@ pipeline {
       stage('Deploying App to Kubernetes') {
          steps{
           script {
+             //  sh """
+            //   kubectl apply -f deploymentservice.yaml
+             //  echo done
+            //"""
              kubernetesDeploy(configs: "deploymentservice.yaml", kubeconfigId: "kubernetes")
           }
          }
