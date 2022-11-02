@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: boot-deployment
-  namespace: app-namespace
+  namespace: jenkins-namespace
   labels:
     app: boot
 spec:
